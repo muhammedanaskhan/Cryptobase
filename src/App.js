@@ -1,9 +1,21 @@
 import './App.css';
+import { Routes, Link, Route } from 'react-router-dom';
+import { Layout, Typography, Space } from 'antd';
+import {Navbar} from './Components';
 
 function App() {
   return (
     <div className="App">
-     <h1>crypto</h1>
+      <div className="navbar">
+        <Navbar/>
+      </div>
+      <div className="main">
+
+      </div>
+      <div className="footer">
+
+      </div>
+    
     </div>
   );
 }
