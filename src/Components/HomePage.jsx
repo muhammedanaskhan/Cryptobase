@@ -1,11 +1,20 @@
 import React from 'react'
-import millify from 'millify'  //package to format the numbers
+//import millify from 'millify'  //package to format the numbers
 import { Typography, Row, Col, Statistic } from 'antd';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
+
+import { useGetCryptosQuery } from '../services/cryptoApi';
 
 const {Title} = Typography;  // destructuring <Typography.Title/>
 
 function HomePage() {
+
+  const { data, isFetching } = useGetCryptosQuery();
+
+  console.log(data)
+
+  
+
   return (
         <>
             <Title level={2} className='heading'>Global Crypto Stats</Title>
