@@ -20,7 +20,7 @@ function CryptoDetails() {
   
 
   const cryptoDetails = data?.data?.coin;
-  
+  console.log(cryptoDetails)
   const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
   const stats = [
@@ -49,6 +49,53 @@ function CryptoDetails() {
         <p>
           {cryptoDetails?.name} live price in US dollars. View value statistics, market cap and supply
         </p>
+      </Col>
+      <Select defaultValue='7d' 
+      className='select-timeperiod' 
+      placeholder="Select Time Period"
+      onChange={(value) => setTimePeriod(value)}
+      >
+          {time.map((date) => <Option key={date}>{date}</Option>)}
+      </Select>
+      <Col className='stats-container'>
+        <Col className='coin-value-statistics'>
+          <Col className='coin-valuestatistics-heading'>
+            <Title level={3} className="coin-details-heading">
+              {cryptoDetails?.name} Value Statistics
+            </Title>
+            <p>
+              An overview showing the stats of {cryptoDetails?.name}
+            </p>
+          </Col>
+          {stats.map(({icon, title, value}) => (
+            <Col className='coin-stats'>
+              <Col className='coin-stats-name'>
+                <Text>{icon}</Text>
+                <Text>{title}</Text>
+              </Col>
+              <Text className='stats'>{value}</Text>
+            </Col>
+          ))}
+        </Col>
+        <Col className='other-stats-info'>
+          <Col className='coin-valuestatistics-heading'>
+            <Title level={3} className="coin-details-heading">
+              Other Statistics
+            </Title>
+            <p>
+              An overview showing the stats of all cryptocurrencies
+            </p>
+          </Col>
+          {genericStats.map(({icon, title, value}) => (
+            <Col className='coin-stats'>
+              <Col className='coin-stats-name'>
+                <Text>{icon}</Text>
+                <Text>{title}</Text>
+              </Col>
+              <Text className='stats'>{value}</Text>
+            </Col>
+          ))}
+        </Col>
       </Col>
 
 
